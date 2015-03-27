@@ -65,7 +65,7 @@ metricNames = {"ApproximateNumberOfMessagesDelayed" => "Average",
 
 unit = 'Count'
 
-cloudwatch = Fog::AWS::CloudWatch.new(:aws_secret_access_key => $awssecretkey, :aws_access_key_id => $awsaccesskey, :region => $awsregion)
+cloudwatch = Fog::AWS::CloudWatch.new($awscredential)
 
 queues.each do |table|
   metricNames.each do |metricName, statistic|

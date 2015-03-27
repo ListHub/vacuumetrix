@@ -48,7 +48,7 @@ ARGV.each do |lb|
 end
 
 if lbs.length == 0
-  elbs = Fog::AWS::ELB.new(:aws_secret_access_key => $awssecretkey, :aws_access_key_id => $awsaccesskey, :region => $awsregion)
+  elbs = Fog::AWS::ELB.new($awscredential)
   for elb in elbs.describe_load_balancers().body['DescribeLoadBalancersResult']['LoadBalancerDescriptions']
     lbs << elb['LoadBalancerName']
   end
